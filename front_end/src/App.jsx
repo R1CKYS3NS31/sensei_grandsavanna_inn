@@ -25,7 +25,7 @@ const promise = loadStripe(
 function App() {
   const [{ basket, user }, dispatch] = useStateValue();
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     // run when App compenent loads
@@ -48,17 +48,30 @@ function App() {
     });
   }, []);
   // admin
-    // new product
-    const newProduct = async (product) => {
-      const res = await fetch("http://localhost:9000/products/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(product),
-      });
-      const productdata = await res.json();
-      setProducts([...products, productdata]);
+  // new product
+  const newProduct = async (product) => {
+    const res = await fetch("http://localhost:9000/products/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(product),
+    });
+    const productdata = await res.json();
+    setProducts([...products, productdata]);
+  };
+    // fetch categories
+    const getProduct = async () => {
+      try {
+        const fetchProduct = await fetch("http://localhost:9000/product");
+        const jsonCategories = await fetchProduct.json();
+        setCategories(jsonCategories);
+      } catch (err) {
+        console.error(err.message);
+      }
     };
-      // fetch categories
+    useEffect(() => {
+      getCategories();
+    }, []);
+  // fetch categories
   const getCategories = async () => {
     try {
       const fetchCategories = await fetch("http://localhost:9000/categories");
@@ -71,10 +84,6 @@ function App() {
   useEffect(() => {
     getCategories();
   }, []);
-  
-
-   
-    
 
   return (
     <Router>
@@ -99,9 +108,9 @@ function App() {
             path={"/newProduct"}
             element={
               <NewProduct
-               newProduct={newProduct}
-               categories={categories}
-              // productImg={productImg}
+                newProduct={newProduct}
+                categories={categories}
+                // productImg={productImg}
               />
             }
           ></Route>

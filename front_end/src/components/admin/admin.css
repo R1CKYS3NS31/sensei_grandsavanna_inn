@@ -13,5 +13,5 @@
 .homeWidget{
   display: flex;
   margin: 20px;
-  
+  width: 100%;
 }

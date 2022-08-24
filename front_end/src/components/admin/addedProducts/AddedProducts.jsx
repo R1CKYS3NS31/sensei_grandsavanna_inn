@@ -7,7 +7,7 @@ export const AddedProducts = () => {
       };
     
       return (
-        <div className="widgetSm">
+        <div className="widgetLg">
           <h3 className="widgetLgTitle">Latest Transactions</h3>
           <table className="widgetLgTable">
             <tr className="widgetLgTr">

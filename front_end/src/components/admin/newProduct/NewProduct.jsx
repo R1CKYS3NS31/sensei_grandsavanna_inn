@@ -104,8 +104,14 @@ export default function NewProduct({ newProduct, productImg, categories }) {
           <select
             name="quantity"
             id="quantity"
+            defaultValue={0}
+            value={quantity}
             onChange={(e) => setQuantity({ quantity: e.target.value })}
+
           >
+            <option value={0} disabled>
+              Choose Quantity in ml
+            </option>
             {optionQuantity.map((quantity, index) => (
               <option key={index} value={quantity.value} required>
                 {quantity.label}
@@ -142,8 +148,13 @@ export default function NewProduct({ newProduct, productImg, categories }) {
           <select
             name="category"
             id="category"
+            defaultValue={"Others"}
+            value={category}
             onChange={(e) => setCategory({ category: e.target.value })}
           >
+            <option value={"default"} disabled>
+              Choose Brand
+            </option>
             {categories.map((category, index) => (
               <option key={index} value={category}>
                 {category}
