@@ -6,7 +6,7 @@ import { Checkout } from "./components/checkout/Checkout";
 import { Login } from "./components/login/Login";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStateValue } from "./utils/StateProvider";
 import { Payment } from "./components/payment/Payment";
 import { loadStripe } from "@stripe/stripe-js";
@@ -16,6 +16,7 @@ import { reducerAction } from "./utils/reducer";
 
 import { Product } from "./components/product/Product";
 import Admin from "./components/admin/Admin";
+import NewProduct from "./components/admin/newProduct/NewProduct";
 
 const promise = loadStripe(
   "pk_test_51LYmN6GRVcB5JNrqaOKJMhNBVdnUzszbsILTLffPwqsRIFiEUnHAda7VZBCBPZ9eH5b0YP1F2F02WsZSZPIPp76R00yWppJSAJ"
@@ -23,6 +24,7 @@ const promise = loadStripe(
 
 function App() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // run when App compenent loads
@@ -35,17 +37,28 @@ function App() {
           type: reducerAction.SET_USER,
           user: user,
         });
-        // ...
       } else {
         // User is signed out
         dispatch({
           type: reducerAction.SET_USER,
           user: null,
         });
-        // ...
       }
     });
   }, []);
+  // admin
+    // new product
+    const newProduct = async (product) => {
+      const res = await fetch("http://localhost:9000/products/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      });
+      const productdata = await res.json();
+      setProducts([...products, productdata]);
+    };
+   
+    
 
   return (
     <Router>
@@ -64,10 +77,18 @@ function App() {
             }
           ></Route>
           <Route path="/orders" element={<Orders />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
           {/* admin */}
+          <Route path="/admin" element={<Admin />}></Route>
+          <Route
+            path={"/newProduct"}
+            element={
+              <NewProduct
+               newProduct={newProduct}
+              // productImg={productImg}
+              />
+            }
+          ></Route>
 
-         
           {/* unknown route */}
           <Route
             path="*"

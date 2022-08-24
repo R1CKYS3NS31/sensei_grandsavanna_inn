@@ -4,8 +4,8 @@
       "id": 1,
       "name": "Fanta",
       "img": "sensei.png",
-      "category":{
-        "category":"softdrink"
+      "category": {
+        "category": "softdrink"
       },
       "quantity": "1",
       "status": {
@@ -13,40 +13,70 @@
       },
       "purchasePrice": "50.00",
       "sellingPrice": "60.00",
-      "alcoholPercentage":"30.0"
+      "alcoholPercentage": "30.0"
     },
     {
-        "id": 1,
-        "name": "Fanta",
-        "img": "sensei.png",
-        "category":{
-          "category":"softdrink"
-        },
-        "quantity": "1",
-        "status": {
-          "status": "On stock"
-        },
-        "purchasePrice": "50.00",
-        "sellingPrice": "60.00",
-        "alcoholPercentage":"30.0"
+      "id": 1,
+      "name": "Fanta",
+      "img": "sensei.png",
+      "category": {
+        "category": "softdrink"
       },
-      {
-        "id": 1,
-        "name": "Fanta",
-        "img": "sensei.png",
-        "category":{
-          "category":"softdrink"
-        },
-        "quantity": "1",
-        "status": {
-          "status": "On stock"
-        },
-        "purchasePrice": "50.00",
-        "sellingPrice": "60.00",
-        "alcoholPercentage":"30.0"
-      }
+      "quantity": "1",
+      "status": {
+        "status": "On stock"
+      },
+      "purchasePrice": "50.00",
+      "sellingPrice": "60.00",
+      "alcoholPercentage": "30.0"
+    },
+    {
+      "id": 1,
+      "name": "Fanta",
+      "img": "sensei.png",
+      "category": {
+        "category": "softdrink"
+      },
+      "quantity": "1",
+      "status": {
+        "status": "On stock"
+      },
+      "purchasePrice": "50.00",
+      "sellingPrice": "60.00",
+      "alcoholPercentage": "30.0"
+    },
+    {
+      "name": "new",
+      "img": "sensei.png",
+      "stock": "2",
+      "status": "",
+      "price": "234",
+      "id": 2
+    },
+    {
+      "name": "keg",
+      "img": "images/beer.jpeg",
+      "stock": "1",
+      "status": {
+        "status": "Out of stock"
+      },
+      "price": "23",
+      "id": 3
+    }
   ],
   "categories": [
-    "Wine","Champagne","Vodka","Liqueur","Brandy","Rum","Beer","Spirit","Whiskey","Cognac","Gin","Soft drinks","Others"
+    "Wine",
+    "Champagne",
+    "Vodka",
+    "Liqueur",
+    "Brandy",
+    "Rum",
+    "Beer",
+    "Spirit",
+    "Whiskey",
+    "Cognac",
+    "Gin",
+    "Soft drinks",
+    "Others"
   ]
 }

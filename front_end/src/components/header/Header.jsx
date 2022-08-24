@@ -16,7 +16,7 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <Link to={"/"}>
+      <Link className="link" to={"/"}>
         <h1 className="header_logo">Grandsavanna Inn</h1>
         {/* <img
           className="header_logo"
@@ -32,7 +32,7 @@ export const Header = () => {
 
       <div className="header_nav">
         {/* login */}
-        <Link to={!user && "/login"}>
+        <Link className="link" to={!user && "/login"}>
           <div className="header_option" onClick={handleAuth}>
             <span className="header_optionLineOne">
               {user ? user.email : "Hello Guest"}
@@ -42,7 +42,7 @@ export const Header = () => {
             </span>
           </div>
         </Link>
-        <Link to={"/orders"}>
+        <Link className="link" to={"/orders"}>
           <div className="header_option">
             <span className="header_optionLineOne">Returns</span>
             <span className="header_optionLineTwo">& Orders</span>
@@ -53,7 +53,7 @@ export const Header = () => {
           <span className="header_optionLineOne">Your</span>
           <span className="header_optionLineTwo">Prime</span>
         </div> */}
-        <Link to={"/checkout"}>
+        <Link className="link" to={"/checkout"}>
           <div className="header_optionBasket">
             <ShoppingBasket />
             <span className="header_optionLineTwo header_basketCount">
