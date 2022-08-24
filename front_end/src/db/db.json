@@ -8,6 +8,15 @@
       "sellingPrice": "1000",
       "purchasePrice": "800",
       "id": 1
+    },
+    {
+      "name": "bbb",
+      "img": "images/beer.jpeg",
+      "quantity": 0,
+      "category": "",
+      "sellingPrice": "444",
+      "purchasePrice": "230",
+      "id": 2
     }
   ],
   "categories": [

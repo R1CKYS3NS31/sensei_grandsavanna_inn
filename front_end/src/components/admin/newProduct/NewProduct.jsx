@@ -5,7 +5,7 @@ export default function NewProduct({ newProduct, productImg, categories }) {
   const [name, setName] = useState("");
   const [img, setImg] = useState("images/beer.jpeg");
   const [quantity, setQuantity] = useState(0);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Others");
   const [purchasePrice, setPurchasePrice] = useState(0.0);
   const [sellingPrice, setSellingPrice] = useState(purchasePrice);
   const [isSelected, setIsSelected] = useState(false);
@@ -44,6 +44,24 @@ export default function NewProduct({ newProduct, productImg, categories }) {
 
     setIsSelected(true);
   };
+  const optionQuantity = [
+    {
+      label: "1000ml",
+      value: "1000ml",
+    },
+    {
+      label: "750ml",
+      value: "750ml",
+    },
+    {
+      label: "500ml",
+      value: "500ml",
+    },
+    {
+      label: "250ml",
+      value: "250ml",
+    },
+  ];
 
   return (
     <div className="newProduct">
@@ -83,14 +101,17 @@ export default function NewProduct({ newProduct, productImg, categories }) {
         </div>
         <div className="addProductItem">
           <label htmlFor="quantity">Quantity in ml</label>
-          <input
-            type="number"
-            placeholder="quantity in ml"
-            min={0}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            required
-          />
+          <select
+            name="quantity"
+            id="quantity"
+            onChange={(e) => setQuantity({ quantity: e.target.value })}
+          >
+            {optionQuantity.map((quantity, index) => (
+              <option key={index} value={quantity.value} required>
+                {quantity.label}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="addProductItem">
           <label htmlFor="purchasePrice">Purchase price</label>
