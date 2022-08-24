@@ -13,20 +13,21 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { Orders } from "./component/orders/Orders";
 import { reducerAction } from "./utils/reducer";
+import { Admin } from "./component/admin/Admin";
 
 const promise = loadStripe(
   "pk_test_51LYmN6GRVcB5JNrqaOKJMhNBVdnUzszbsILTLffPwqsRIFiEUnHAda7VZBCBPZ9eH5b0YP1F2F02WsZSZPIPp76R00yWppJSAJ"
 );
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   useEffect(() => {
     // run when App compenent loads
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in
-        const uid = user.uid;
+        // const uid = user.uid;
         // console.log('user: '+uid);
         dispatch({
           type: reducerAction.SET_USER,
@@ -60,7 +61,8 @@ function App() {
               </Elements>
             }
           ></Route>
-          <Route path="/orders" element={<Orders/>}></Route>
+          <Route path="/orders" element={<Orders />}></Route>
+          <Route path="/admin" element={<Admin/>}></Route>
 
           {/* unknown route */}
           <Route
