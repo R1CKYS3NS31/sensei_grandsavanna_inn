@@ -125,6 +125,7 @@ export const Payment = () => {
                 image={item.image}
                 price={item.price}
                 rating={item.rating}
+                quantity={item.quantity}
               />
             ))}
           </div>

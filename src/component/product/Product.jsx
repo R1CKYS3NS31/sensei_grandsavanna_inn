@@ -3,9 +3,8 @@ import { reducerAction } from "../../utils/reducer";
 import { useStateValue } from "../../utils/StateProvider";
 import "./product.css";
 
-export const Product = ({ id, title, image, price, rating }) => {
-  const [{basket}, dispatch] = useStateValue(); 
-  
+export const Product = ({ id, title, image, price, rating, quantity }) => {
+  const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
     // dispatch item into basket
@@ -18,6 +17,7 @@ export const Product = ({ id, title, image, price, rating }) => {
         image: image,
         price: price,
         rating: rating,
+        quantity: quantity,
       },
     });
   };
@@ -25,6 +25,9 @@ export const Product = ({ id, title, image, price, rating }) => {
     <div className="product">
       <div className="product_info">
         <p>{title}</p>
+        <p>
+          <small>{quantity}</small>
+        </p>
         <p className="product_price">
           <small>Ksh. </small>
           <strong>{price}</strong>

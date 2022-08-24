@@ -21,6 +21,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
           <Product
@@ -30,6 +31,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
           {/* product */}
@@ -42,6 +44,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
           <Product
@@ -51,6 +54,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
           <Product
@@ -60,6 +64,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
           {/* product */}
@@ -73,6 +78,7 @@ export const Home = () => {
             image={
               "images/beer.jpeg"
             }
+            quantity={'250ml'}
             rating={4}
           />
 

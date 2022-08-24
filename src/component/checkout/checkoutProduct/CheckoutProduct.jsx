@@ -9,6 +9,7 @@ export const CheckoutProduct = ({
   title,
   price,
   rating,
+  quantity,
   hideButton,
 }) => {
   const [{ basket }, dispatch] = useStateValue();
@@ -26,6 +27,9 @@ export const CheckoutProduct = ({
       <img src={image} alt="" className="checkoutProduct_image" />
       <div className="checkoutProduct_info">
         <p className="chekoutProduct_title">{title}</p>
+        <p>
+          <small>{quantity}</small>
+        </p>
         <p className="checkoutProdcut_price">
           <small>Ksh. </small>
           <strong>{price}</strong>
