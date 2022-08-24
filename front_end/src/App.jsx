@@ -26,6 +26,7 @@ function App() {
   const [{ basket, user }, dispatch] = useStateValue();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [product, setProduct] = useState([])
 
   useEffect(() => {
     // run when App compenent loads
@@ -58,18 +59,18 @@ function App() {
     const productdata = await res.json();
     setProducts([...products, productdata]);
   };
-    // fetch categories
+    // fetch product
     const getProduct = async () => {
       try {
         const fetchProduct = await fetch("http://localhost:9000/product");
-        const jsonCategories = await fetchProduct.json();
-        setCategories(jsonCategories);
+        const jsonProduct = await fetchProduct.json();
+        setProduct(jsonProduct);
       } catch (err) {
         console.error(err.message);
       }
     };
     useEffect(() => {
-      getCategories();
+      getProduct();
     }, []);
   // fetch categories
   const getCategories = async () => {
@@ -103,7 +104,7 @@ function App() {
           ></Route>
           <Route path="/orders" element={<Orders />}></Route>
           {/* admin */}
-          <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/admin" element={<Admin product={product} />}></Route>
           <Route
             path={"/newProduct"}
             element={

@@ -7,7 +7,7 @@ export default function NewProduct({ newProduct, productImg, categories }) {
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState("Others");
   const [purchasePrice, setPurchasePrice] = useState(0.0);
-  const [sellingPrice, setSellingPrice] = useState(purchasePrice);
+  const [sellingPrice, setSellingPrice] = useState(0.0);
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setselectedFile] = useState();
 
@@ -105,7 +105,6 @@ export default function NewProduct({ newProduct, productImg, categories }) {
             name="quantity"
             id="quantity"
             defaultValue={0}
-            value={quantity}
             onChange={(e) => setQuantity({ quantity: e.target.value })}
 
           >
@@ -149,10 +148,10 @@ export default function NewProduct({ newProduct, productImg, categories }) {
             name="category"
             id="category"
             defaultValue={"Others"}
-            value={category}
+            
             onChange={(e) => setCategory({ category: e.target.value })}
           >
-            <option value={"default"} disabled>
+            <option value={"Others"} disabled>
               Choose Brand
             </option>
             {categories.map((category, index) => (
@@ -161,6 +160,7 @@ export default function NewProduct({ newProduct, productImg, categories }) {
               </option>
             ))}
           </select>
+          
         </div>
 
         <input

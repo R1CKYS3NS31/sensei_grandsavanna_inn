@@ -17,6 +17,32 @@
       "sellingPrice": "444",
       "purchasePrice": "230",
       "id": 2
+    },
+    {
+      "name": "maji",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "400",
+      "purchasePrice": "220",
+      "id": 3
+    },
+    {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "250ml"
+      },
+      "category": {
+        "category": "Others"
+      },
+      "sellingPrice": "30",
+      "purchasePrice": "20",
+      "id": 4
     }
   ],
   "categories": [

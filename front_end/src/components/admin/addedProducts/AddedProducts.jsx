@@ -2,19 +2,21 @@ import React from 'react'
 import './addedProducts.css'
 
 export const AddedProducts = () => {
+    const Th = ['Name','Quantity','Category','Purchase price','Selling price']
     const Button = ({ type }) => {
         return <button className={"widgetLgButton "+type}>{type}</button>;
       };
     
       return (
         <div className="widgetLg">
-          <h3 className="widgetLgTitle">Latest Transactions</h3>
+          <h3 className="widgetLgTitle">Stock Products</h3>
+
           <table className="widgetLgTable">
             <tr className="widgetLgTr">
-              <th className="widgetLgTh">Customer</th>
-              <th className="widgetLgTh">Date</th>
-              <th className="widgetLgTh">Amount</th>
-              <th className="widgetLgTh">Status</th>
+                {Th.map((th,index)=>(
+                    <th className="widgetLgTh" key={index}>{th}</th>
+                ))}
+              
             </tr>
             <tr className="widgetLgTr">
               <td className="widgetLgUser">
