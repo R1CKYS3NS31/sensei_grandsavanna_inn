@@ -13,8 +13,21 @@ export const Home = ({product}) => {
           // src="images/Silverlake+Social.png"
           alt="banner"
         />
-        <div className="home_row">
-          <Product
+        
+         <div className="home_row">
+          {product.map((product)=>(
+            <Product key={product.id}
+            id={product.id}
+            title={product.name}
+            price={product.sellingPrice}
+            image={
+              product.img
+            }
+            quantity={product.quantity.quantity}
+            rating={4}
+          />
+        ))}
+          {/* <Product
             id={1}
             title={"The learn startup"}
             price={19.00}
@@ -23,68 +36,16 @@ export const Home = ({product}) => {
             }
             quantity={'250ml'}
             rating={4}
-          />
-          <Product
-            id={2}
-            title={"The learn startup"}
-            price={100.00}
-            image={
-              "images/beer.jpeg"
-            }
-            quantity={'250ml'}
-            rating={4}
-          />
-          {/* product */}
+          /> */}
+         
+          
         </div>
-        <div className="home_row">
-          <Product
-            id={3}
-            title={"The learn startup"}
-            price={178.00}
-            image={
-              "images/beer.jpeg"
-            }
-            quantity={'250ml'}
-            rating={4}
-          />
-          <Product
-            id={4}
-            title={"The learn startup"}
-            price={19.0}
-            image={
-              "images/beer.jpeg"
-            }
-            quantity={'250ml'}
-            rating={4}
-          />
-          <Product
-            id={5}
-            title={"The learn startup"}
-            price={67.00}
-            image={
-              "images/beer.jpeg"
-            }
-            quantity={'250ml'}
-            rating={4}
-          />
-          {/* product */}
-          {/* product */}
-        </div>
-        <div className="home_row">
-          <Product
-            id={6}
-            title={"The learn startup"}
-            price={34.00}
-            image={
-              "images/beer.jpeg"
-            }
-            quantity={'250ml'}
-            rating={4}
-          />
-
-          {/* product */}
-          {/* product */}
-        </div>
+        {/* <div className="home_row">
+        
+          product
+          
+        </div> */}
+       
       </div>
     </div>
   );
