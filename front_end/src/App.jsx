@@ -23,10 +23,10 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user, }, dispatch] = useStateValue();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
     // run when App compenent loads
@@ -59,19 +59,20 @@ function App() {
     const productdata = await res.json();
     setProducts([...products, productdata]);
   };
-    // fetch product
-    const getProduct = async () => {
-      try {
-        const fetchProduct = await fetch("http://localhost:9000/product");
-        const jsonProduct = await fetchProduct.json();
-        setProduct(jsonProduct);
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
-    useEffect(() => {
-      getProduct();
-    }, []);
+
+  // fetch product
+  const getProduct = async () => {
+    try {
+      const fetchProduct = await fetch("http://localhost:9000/products");
+      const jsonProduct = await fetchProduct.json();
+      setProduct(jsonProduct);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
   // fetch categories
   const getCategories = async () => {
     try {
@@ -91,7 +92,7 @@ function App() {
       <div className="app">
         <Header />
         <Routes>
-          <Route path={"/"} exact element={<Home />}></Route>
+          <Route path={"/"} exact element={<Home product={product}/>}></Route>
           <Route path={"/checkout"} element={<Checkout />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route

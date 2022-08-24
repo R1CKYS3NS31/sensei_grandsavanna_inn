@@ -3,7 +3,7 @@ import { AddedProducts } from './addedProducts/AddedProducts'
 import './admin.css'
 import SideBar from './sidebar/SideBar'
 
-export default function Admin() {
+export default function Admin({product}) {
   return (
     <div className="admin">
        <SideBar/>
@@ -13,7 +13,7 @@ export default function Admin() {
         <Chart data ={userData} dataKey={"Active User"} title={"User Analytics"} grid/> */}
         <div className="homeWidget">
           {/* <WidgetSM /> */}
-          <AddedProducts />
+          <AddedProducts product={product} />
           {/* <AddedProducts/> */}
         </div>
         

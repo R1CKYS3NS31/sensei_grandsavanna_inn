@@ -2,7 +2,7 @@ import React from "react";
 import { Product } from "../product/Product";
 import "./home.css";
 
-export const Home = () => {
+export const Home = ({product}) => {
   return (
     <div className="home">
       <div className="home_container">

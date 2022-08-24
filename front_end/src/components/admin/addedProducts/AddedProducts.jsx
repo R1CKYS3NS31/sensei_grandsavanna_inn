@@ -1,71 +1,58 @@
-import React from 'react'
-import './addedProducts.css'
+import React from "react";
+import "./addedProducts.css";
 
-export const AddedProducts = () => {
-    const Th = ['Name','Quantity','Category','Purchase price','Selling price']
-    const Button = ({ type }) => {
-        return <button className={"widgetLgButton "+type}>{type}</button>;
-      };
-    
-      return (
-        <div className="widgetLg">
-          <h3 className="widgetLgTitle">Stock Products</h3>
+export const AddedProducts = ({ product }) => {
+  const Th = [
+    "Name",
+    "Quantity",
+    "Category",
+    "Purchase price",
+    "Selling price",
+    "Profit",
+  ];
+  const Button = ({ type }) => {
+    return <button className={"widgetLgButton " + type}>{type}</button>;
+  };
 
-          <table className="widgetLgTable">
-            <tr className="widgetLgTr">
-                {Th.map((th,index)=>(
-                    <th className="widgetLgTh" key={index}>{th}</th>
-                ))}
-              
-            </tr>
-            <tr className="widgetLgTr">
+  return (
+    <div className="widgetLg">
+      <h3 className="widgetLgTitle">Stock Products</h3>
+
+      <table className="widgetLgTable">
+        <thead className="widgetLgTr">
+          {Th.map((th, index) => (
+            <th className="widgetLgTh" key={index}>
+              {th}
+            </th>
+          ))}
+        </thead>
+        <tbody>
+          {product.map((product, i) => (
+            <tr key={product.id} className="widgetLgTr">
               <td className="widgetLgUser">
-                <img src="sensei.png" alt="" className="widgetLgImg" />
-                <span className="widgetLgName">Sensei</span>
+                <img src={product.img} alt="" className="widgetLgImg" />
+                <span className="widgetLgName">{product.name}</span>
               </td>
-              <td className="widgetLgDate">13 Mar 2022</td>
-              <td className="widgetLgAmount">Ksh. 300.00</td>
-              <td className="widgetLgStatus">
+              <td className="widgetLgDate">{product.quantity.quantity}</td>
+
+              <td className="widgetLgDate">{product.category.category}</td>
+
+              <td className="widgetLgAmount">
+                <small>Ksh.</small> {product.purchasePrice}
+              </td>
+              <td className="widgetLgAmount">
+                <small>Ksh.</small> {product.sellingPrice}
+              </td>
+              <td className="widgetLgAmount">
+                <small>Ksh.</small> {product.profit}
+              </td>
+              {/* <td className="widgetLgStatus">
                 <Button type="Approved" />
-              </td>
+              </td> */}
             </tr>
-           
-            <tr className="widgetLgTr">
-              <td className="widgetLgUser">
-                <img src="sensei.png" alt="" className="widgetLgImg" />
-                <span className="widgetLgName">Sensei</span>
-              </td>
-              <td className="widgetLgDate">13 Mar 2022</td>
-              <td className="widgetLgAmount">Ksh. 300.00</td>
-              <td className="widgetLgStatus">
-                <Button type="Declined"/>
-              </td>
-            </tr>
-           
-            <tr className="widgetLgTr">
-              <td className="widgetLgUser">
-                <img src="sensei.png" alt="" className="widgetLgImg" />
-                <span className="widgetLgName">Sensei</span>
-              </td>
-              <td className="widgetLgDate">13 Mar 2022</td>
-              <td className="widgetLgAmount">Ksh. 300.00</td>
-              <td className="widgetLgStatus">
-                <Button type="Pending" />
-              </td>
-            </tr>
-           
-            <tr className="widgetLgTr">
-              <td className="widgetLgUser">
-                <img src="sensei.png" alt="" className="widgetLgImg" />
-                <span className="widgetLgName">Sensei</span>
-              </td>
-              <td className="widgetLgDate">13 Mar 2022</td>
-              <td className="widgetLgAmount">Ksh. 300.00</td>
-              <td className="widgetLgStatus">
-                <Button type="Approved" />
-              </td>
-            </tr>
-          </table>
-        </div>
-      );
-}
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};

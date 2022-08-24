@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { reducerAction } from "../../../utils/reducer";
+import { useStateValue } from "../../../utils/StateProvider";
 import "./newProduct.css";
 
 export default function NewProduct({ newProduct, productImg, categories }) {
+  const [{ basket, user, stockProduct }, dispatch] = useStateValue();
   const [name, setName] = useState("");
   const [img, setImg] = useState("images/beer.jpeg");
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState("Others");
   const [purchasePrice, setPurchasePrice] = useState(0.0);
   const [sellingPrice, setSellingPrice] = useState(0.0);
+  const [profit, setProfit] = useState(0)
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setselectedFile] = useState();
+  
 
+console.log(stockProduct);
   //   submit handle
   const onSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +25,32 @@ export default function NewProduct({ newProduct, productImg, categories }) {
       alert("Please a Product!");
       return;
     }
-    newProduct({ name, img, quantity, category, sellingPrice, purchasePrice });
+    newProduct({ name, img, quantity, category, sellingPrice, purchasePrice,profit });
     setName("");
     setImg("images/beer.jpeg");
     setQuantity(0);
-    setCategory("");
-    setSellingPrice(sellingPrice);
+    setCategory("Others");
+    setSellingPrice(0.0);
     setPurchasePrice(0.0);
+    setProfit(0.0)
+
+    // DISPATCH
+    dispatch({
+      type: reducerAction.STOCK_PRODUCT,
+      item: {
+        name: name,
+        img: img,
+        quantity: quantity,
+        category: category,
+        sellingPrice: sellingPrice,
+        purchasePrice: purchasePrice,
+        profit: profit,
+      },
+    });
   };
+  useEffect(() => {
+  setProfit(sellingPrice-purchasePrice)
+  }, [sellingPrice])
 
   // image handle
   const imgUpload = async (event) => {
