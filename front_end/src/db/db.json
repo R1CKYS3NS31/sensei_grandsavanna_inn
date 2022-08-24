@@ -1,67 +1,13 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Fanta",
-      "img": "sensei.png",
-      "category": {
-        "category": "softdrink"
-      },
-      "quantity": "1",
-      "category": {
-        "category": "On stock"
-      },
-      "purchasePrice": "50.00",
-      "sellingPrice": "60.00",
-      "alcoholPercentage": "30.0"
-    },
-    {
-      "id": 1,
-      "name": "Fanta",
-      "img": "sensei.png",
-      "category": {
-        "category": "softdrink"
-      },
-      "quantity": "1",
-      "category": {
-        "category": "On stock"
-      },
-      "purchasePrice": "50.00",
-      "sellingPrice": "60.00",
-      "alcoholPercentage": "30.0"
-    },
-    {
-      "id": 1,
-      "name": "Fanta",
-      "img": "sensei.png",
-      "category": {
-        "category": "softdrink"
-      },
-      "quantity": "1",
-      "category": {
-        "category": "On stock"
-      },
-      "purchasePrice": "50.00",
-      "sellingPrice": "60.00",
-      "alcoholPercentage": "30.0"
-    },
-    {
-      "name": "new",
-      "img": "sensei.png",
-      "quantity": "2",
-      "category": "",
-      "sellingPrice": "234",
-      "id": 2
-    },
-    {
-      "name": "keg",
+      "name": "Chrome",
       "img": "images/beer.jpeg",
-      "quantity": "1",
-      "category": {
-        "category": "Out of stock"
-      },
-      "sellingPrice": "23",
-      "id": 3
+      "quantity": "750",
+      "category": "",
+      "sellingPrice": "1000",
+      "purchasePrice": "800",
+      "id": 1
     }
   ],
   "categories": [

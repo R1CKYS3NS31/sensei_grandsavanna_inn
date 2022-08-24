@@ -25,6 +25,7 @@ const promise = loadStripe(
 function App() {
   const [{ basket, user }, dispatch] = useStateValue();
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     // run when App compenent loads
@@ -57,6 +58,21 @@ function App() {
       const productdata = await res.json();
       setProducts([...products, productdata]);
     };
+      // fetch categories
+  const getCategories = async () => {
+    try {
+      const fetchCategories = await fetch("http://localhost:9000/categories");
+      const jsonCategories = await fetchCategories.json();
+      setCategories(jsonCategories);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
+  
+
    
     
 
@@ -84,6 +100,7 @@ function App() {
             element={
               <NewProduct
                newProduct={newProduct}
+               categories={categories}
               // productImg={productImg}
               />
             }

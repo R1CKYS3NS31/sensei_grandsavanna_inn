@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./newProduct.css";
 
-export default function NewProduct({ newProduct, productImg }) {
+export default function NewProduct({ newProduct, productImg, categories }) {
   const [name, setName] = useState("");
   const [img, setImg] = useState("images/beer.jpeg");
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState("");
-  const [purchasePrice, setPurchasePrice] = useState(0.0)
+  const [purchasePrice, setPurchasePrice] = useState(0.0);
   const [sellingPrice, setSellingPrice] = useState(purchasePrice);
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setselectedFile] = useState();
@@ -24,23 +24,10 @@ export default function NewProduct({ newProduct, productImg }) {
     setImg("images/beer.jpeg");
     setQuantity(0);
     setCategory("");
-    setSellingPrice(purchasePrice);
-    setPurchasePrice(0.0)
+    setSellingPrice(sellingPrice);
+    setPurchasePrice(0.0);
   };
 
-  const options = [
-    {
-      label: "On stock",
-
-      value: "On stock",
-    },
-
-    {
-      label: "Out of stock",
-
-      value: "Out of stock",
-    },
-  ];
   // image handle
   const imgUpload = async (event) => {
     setselectedFile(event.target.files[0]);
@@ -95,7 +82,7 @@ export default function NewProduct({ newProduct, productImg }) {
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="quantity">quantity</label>
+          <label htmlFor="quantity">Quantity in ml</label>
           <input
             type="number"
             placeholder="quantity in ml"
@@ -106,7 +93,7 @@ export default function NewProduct({ newProduct, productImg }) {
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="purchasePrice">purchasePrice</label>
+          <label htmlFor="purchasePrice">Purchase price</label>
           <input
             type="number"
             placeholder="ksh. 0.00"
@@ -118,7 +105,7 @@ export default function NewProduct({ newProduct, productImg }) {
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="sellingPrice">sellingPrice</label>
+          <label htmlFor="sellingPrice">Selling price</label>
           <input
             type="number"
             placeholder="ksh. 0.00"
@@ -130,15 +117,15 @@ export default function NewProduct({ newProduct, productImg }) {
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="category">category</label>
+          <label htmlFor="category">Category</label>
           <select
             name="category"
             id="category"
             onChange={(e) => setCategory({ category: e.target.value })}
           >
-            {options.map((option, index) => (
-              <option key={index} value={option.value}>
-                {option.label}
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
               </option>
             ))}
           </select>
