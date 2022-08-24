@@ -4,9 +4,10 @@ import "./newProduct.css";
 export default function NewProduct({ newProduct, productImg }) {
   const [name, setName] = useState("");
   const [img, setImg] = useState("images/beer.jpeg");
-  const [stock, setStock] = useState(0);
-  const [status, setStatus] = useState("");
-  const [price, setPrice] = useState(0.0);
+  const [quantity, setQuantity] = useState(0);
+  const [category, setCategory] = useState("");
+  const [purchasePrice, setPurchasePrice] = useState(0.0)
+  const [sellingPrice, setSellingPrice] = useState(purchasePrice);
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setselectedFile] = useState();
 
@@ -18,12 +19,13 @@ export default function NewProduct({ newProduct, productImg }) {
       alert("Please a Product!");
       return;
     }
-    newProduct({ name, img, stock, status, price });
+    newProduct({ name, img, quantity, category, sellingPrice, purchasePrice });
     setName("");
     setImg("images/beer.jpeg");
-    setStock(0);
-    setStatus("");
-    setPrice(0.0);
+    setQuantity(0);
+    setCategory("");
+    setSellingPrice(purchasePrice);
+    setPurchasePrice(0.0)
   };
 
   const options = [
@@ -93,32 +95,46 @@ export default function NewProduct({ newProduct, productImg }) {
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="stock">Stock</label>
+          <label htmlFor="quantity">quantity</label>
           <input
-            type="text"
-            placeholder="stock number"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
+            type="number"
+            placeholder="quantity in ml"
+            min={0}
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            required
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="purchasePrice">purchasePrice</label>
           <input
             type="number"
             placeholder="ksh. 0.00"
             min={0.0}
             step={"0.01"}
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={purchasePrice}
+            onChange={(e) => setPurchasePrice(e.target.value)}
             required
           />
         </div>
         <div className="addProductItem">
-          <label htmlFor="status">Status</label>
+          <label htmlFor="sellingPrice">sellingPrice</label>
+          <input
+            type="number"
+            placeholder="ksh. 0.00"
+            min={0.0}
+            step={"0.01"}
+            value={sellingPrice}
+            onChange={(e) => setSellingPrice(e.target.value)}
+            required
+          />
+        </div>
+        <div className="addProductItem">
+          <label htmlFor="category">category</label>
           <select
-            name="status"
-            id="status"
-            onChange={(e) => setStatus({ status: e.target.value })}
+            name="category"
+            id="category"
+            onChange={(e) => setCategory({ category: e.target.value })}
           >
             {options.map((option, index) => (
               <option key={index} value={option.value}>

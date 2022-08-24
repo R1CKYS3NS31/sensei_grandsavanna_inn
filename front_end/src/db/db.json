@@ -8,8 +8,8 @@
         "category": "softdrink"
       },
       "quantity": "1",
-      "status": {
-        "status": "On stock"
+      "category": {
+        "category": "On stock"
       },
       "purchasePrice": "50.00",
       "sellingPrice": "60.00",
@@ -23,8 +23,8 @@
         "category": "softdrink"
       },
       "quantity": "1",
-      "status": {
-        "status": "On stock"
+      "category": {
+        "category": "On stock"
       },
       "purchasePrice": "50.00",
       "sellingPrice": "60.00",
@@ -38,8 +38,8 @@
         "category": "softdrink"
       },
       "quantity": "1",
-      "status": {
-        "status": "On stock"
+      "category": {
+        "category": "On stock"
       },
       "purchasePrice": "50.00",
       "sellingPrice": "60.00",
@@ -48,19 +48,19 @@
     {
       "name": "new",
       "img": "sensei.png",
-      "stock": "2",
-      "status": "",
-      "price": "234",
+      "quantity": "2",
+      "category": "",
+      "sellingPrice": "234",
       "id": 2
     },
     {
       "name": "keg",
       "img": "images/beer.jpeg",
-      "stock": "1",
-      "status": {
-        "status": "Out of stock"
+      "quantity": "1",
+      "category": {
+        "category": "Out of stock"
       },
-      "price": "23",
+      "sellingPrice": "23",
       "id": 3
     }
   ],
