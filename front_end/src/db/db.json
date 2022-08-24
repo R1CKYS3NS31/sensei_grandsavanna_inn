@@ -1,6 +1,20 @@
 {
   "products": [
     {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "180",
+      "purchasePrice": "120",
+      "profit": 60,
+      "id": 2
+    },
+    {
       "name": "Chrome",
       "img": "images/beer.jpeg",
       "quantity": {
@@ -29,6 +43,102 @@
       "id": 2
     },
     {
+      "name": "Gilbeys",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "1000ml"
+      },
+      "category": {
+        "category": "Whiskey"
+      },
+      "sellingPrice": "1000",
+      "purchasePrice": "770",
+      "profit": 230,
+      "id": 4
+    },
+    {
+      "name": "Maji",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "250ml"
+      },
+      "category": "Others",
+      "sellingPrice": "25",
+      "purchasePrice": "15",
+      "profit": 10,
+      "id": 3
+    },
+    {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "180",
+      "purchasePrice": "120",
+      "profit": 60,
+      "id": 2
+    },
+    {
+      "name": "Gilbeys",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "1000ml"
+      },
+      "category": {
+        "category": "Whiskey"
+      },
+      "sellingPrice": "1000",
+      "purchasePrice": "770",
+      "profit": 230,
+      "id": 4
+    },
+    {
+      "name": "Chrome",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Vodka"
+      },
+      "sellingPrice": "1100",
+      "purchasePrice": "800",
+      "profit": 0,
+      "id": 1
+    },
+    {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "180",
+      "purchasePrice": "120",
+      "profit": 60,
+      "id": 2
+    },
+    {
+      "name": "Gilbeys",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "1000ml"
+      },
+      "category": {
+        "category": "Whiskey"
+      },
+      "sellingPrice": "1000",
+      "purchasePrice": "770",
+      "profit": 230,
+      "id": 4
+    },
+    {
       "name": "Maji",
       "img": "images/beer.jpeg",
       "quantity": {
@@ -53,6 +163,60 @@
       "purchasePrice": "770",
       "profit": 230,
       "id": 4
+    },
+    {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "180",
+      "purchasePrice": "120",
+      "profit": 60,
+      "id": 2
+    },
+    {
+      "name": "Chrome",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Vodka"
+      },
+      "sellingPrice": "1100",
+      "purchasePrice": "800",
+      "profit": 0,
+      "id": 1
+    },
+    {
+      "name": "Maji",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "250ml"
+      },
+      "category": "Others",
+      "sellingPrice": "25",
+      "purchasePrice": "15",
+      "profit": 10,
+      "id": 3
+    },
+    {
+      "name": "Fanta",
+      "img": "images/beer.jpeg",
+      "quantity": {
+        "quantity": "750ml"
+      },
+      "category": {
+        "category": "Soft drinks"
+      },
+      "sellingPrice": "180",
+      "purchasePrice": "120",
+      "profit": 60,
+      "id": 2
     }
   ],
   "categories": [

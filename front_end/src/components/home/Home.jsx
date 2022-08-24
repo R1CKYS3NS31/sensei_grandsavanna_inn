@@ -19,7 +19,7 @@ export const Home = ({product}) => {
             <Product key={product.id}
             id={product.id}
             title={product.name}
-            price={product.sellingPrice}
+            price={parseFloat(product.sellingPrice) }
             image={
               product.img
             }

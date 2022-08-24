@@ -14,7 +14,9 @@
 }
 
 .home_row{
-    display: flex;
+    display: grid;
+    height: 400px;
+    align-content:center;
     z-index: 1;
     margin-left: 5px;
     margin-right: 5px;
