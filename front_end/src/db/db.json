@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Fanta",
+      "img": "sensei.png",
+      "category":{
+        "category":"softdrink"
+      },
+      "quantity": "1",
+      "status": {
+        "status": "On stock"
+      },
+      "purchasePrice": "50.00",
+      "sellingPrice": "60.00",
+      "alcoholPercentage":"30.0"
+    },
+    {
+        "id": 1,
+        "name": "Fanta",
+        "img": "sensei.png",
+        "category":{
+          "category":"softdrink"
+        },
+        "quantity": "1",
+        "status": {
+          "status": "On stock"
+        },
+        "purchasePrice": "50.00",
+        "sellingPrice": "60.00",
+        "alcoholPercentage":"30.0"
+      },
+      {
+        "id": 1,
+        "name": "Fanta",
+        "img": "sensei.png",
+        "category":{
+          "category":"softdrink"
+        },
+        "quantity": "1",
+        "status": {
+          "status": "On stock"
+        },
+        "purchasePrice": "50.00",
+        "sellingPrice": "60.00",
+        "alcoholPercentage":"30.0"
+      }
+  ],
+  "categories": [
+    "Wine","Champagne","Vodka","Liqueur","Brandy","Rum","Beer","Spirit","Whiskey","Cognac","Gin","Soft drinks","Others"
+  ]
+}

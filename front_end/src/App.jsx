@@ -1,19 +1,21 @@
 import "./App.css";
-import { Header } from "./component/header/Header";
-import { Home } from "./component/home/Home";
+import { Header } from "./components/header/Header";
+import { Home } from "./components/home/Home";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Checkout } from "./component/checkout/Checkout";
-import { Login } from "./component/login/Login";
+import { Checkout } from "./components/checkout/Checkout";
+import { Login } from "./components/login/Login";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./utils/StateProvider";
-import { Payment } from "./component/payment/Payment";
+import { Payment } from "./components/payment/Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { Orders } from "./component/orders/Orders";
+import { Orders } from "./components/orders/Orders";
 import { reducerAction } from "./utils/reducer";
-import { Admin } from "./component/admin/Admin";
+
+import { Product } from "./components/product/Product";
+import Admin from "./components/admin/Admin";
 
 const promise = loadStripe(
   "pk_test_51LYmN6GRVcB5JNrqaOKJMhNBVdnUzszbsILTLffPwqsRIFiEUnHAda7VZBCBPZ9eH5b0YP1F2F02WsZSZPIPp76R00yWppJSAJ"
@@ -62,8 +64,10 @@ function App() {
             }
           ></Route>
           <Route path="/orders" element={<Orders />}></Route>
-          <Route path="/admin" element={<Admin/>}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
+          {/* admin */}
 
+         
           {/* unknown route */}
           <Route
             path="*"
