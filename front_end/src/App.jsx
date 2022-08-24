@@ -9,8 +9,6 @@ import { auth } from "./utils/firebase";
 import { useEffect, useState } from "react";
 import { useStateValue } from "./utils/StateProvider";
 import { Payment } from "./components/payment/Payment";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import { Orders } from "./components/orders/Orders";
 import { reducerAction } from "./utils/reducer";
 
@@ -18,12 +16,8 @@ import { Product } from "./components/product/Product";
 import Admin from "./components/admin/Admin";
 import NewProduct from "./components/admin/newProduct/NewProduct";
 
-const promise = loadStripe(
-  "pk_test_51LYmN6GRVcB5JNrqaOKJMhNBVdnUzszbsILTLffPwqsRIFiEUnHAda7VZBCBPZ9eH5b0YP1F2F02WsZSZPIPp76R00yWppJSAJ"
-);
-
 function App() {
-  const [{ basket, user, }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [product, setProduct] = useState([]);
@@ -92,17 +86,10 @@ function App() {
       <div className="app">
         <Header />
         <Routes>
-          <Route path={"/"} exact element={<Home product={product}/>}></Route>
+          <Route path={"/"} exact element={<Home product={product} />}></Route>
           <Route path={"/checkout"} element={<Checkout />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route
-            path="/payment"
-            element={
-              <Elements stripe={promise}>
-                <Payment />
-              </Elements>
-            }
-          ></Route>
+          <Route path="/payment" element={<Payment />}></Route>
           <Route path="/orders" element={<Orders />}></Route>
           {/* admin */}
           <Route path="/admin" element={<Admin product={product} />}></Route>

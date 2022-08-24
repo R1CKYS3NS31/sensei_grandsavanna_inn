@@ -1,4 +1,3 @@
-import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
 import { useStateValue } from "../../utils/StateProvider";
@@ -8,22 +7,13 @@ import "./orders.css";
 export const Orders = () => {
   const [{ basket, user }, dispatch] = useStateValue();
   const [orders, setOrders] = useState([]);
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(db, "users", user.uid);
-      const orderRef = collection(userRef, "orders");
-      onSnapshot(orderRef, (snapshot) =>
-        setOrders(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      );
-    } else {
-      setOrders([]);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+     
+  //   } else {
+  //     setOrders([]);
+  //   }
+  // }, [user]);
 
   return (
     <div className="orders">
