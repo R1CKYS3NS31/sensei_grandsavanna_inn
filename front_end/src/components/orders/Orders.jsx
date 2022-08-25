@@ -5,23 +5,30 @@ import { Order } from "./order/Order";
 import "./orders.css";
 
 export const Orders = () => {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user, order }, dispatch] = useStateValue();
   const [orders, setOrders] = useState([]);
-  // useEffect(() => {
-  //   if (user) {
-     
-  //   } else {
-  //     setOrders([]);
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (user) {
+      setOrders(order);
+    } else {
+      setOrders([]);
+    }
+  }, [user]);
+  console.log(order);
 
   return (
     <div className="orders">
       <h1>Your Orders</h1>
       <div className="orders_order">
-        {orders?.map((order) => (
-          <Order order={order} />
-        ))}
+        {order.length === 0 ? (
+          <p>no order</p>
+        ) : (
+          // orders?.map((order) => (
+
+              <Order order={order} />
+          //   ))
+          
+        )}
       </div>
     </div>
   );

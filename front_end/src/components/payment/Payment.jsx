@@ -7,9 +7,8 @@ import { CheckoutProduct } from "../checkout/checkoutProduct/CheckoutProduct";
 import "./payment.css";
 
 export const Payment = () => {
-  const baseUrl = "http://localhost:5001/sensei-clone/us-central1/api";
-
-  const [{ basket, user }, dispatch] = useStateValue();
+  const date = Date.now();
+  const [{ basket, user, order }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
   const [error, setError] = useState(null);
@@ -18,49 +17,57 @@ export const Payment = () => {
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true);
 
-  // useEffect(() => {
-  //   const getClientSecret = async () => {
-  //     const response = await fetch(
-
-  //     );
-  //     const data = await response.json();
-
-  //   };
-  //   getClientSecret();
-  // }, [basket]);
-
-  console.log("The client secrete is: ", clientSecret);
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await fetch();
+      const data = await response.json();
+    };
+    getClientSecret();
+  }, [basket]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setProcessing(true);
 
+    dispatch({
+      type: reducerAction.ADD_TO_ORDER,
+      item: {
+        id: Date.now(),
+        orderAmount: getBasketTotal(basket),
+        orderProducts: basket.map((item) => ({
+          id: item.id,
+          title: item.title,
+          image: item.image,
+          price: item.price,
+          rating: item.rating,
+          quantity: item.quantity,
+        })),
+      },
+    });
     dispatch({
       type: reducerAction.EMPTY_BASKET,
     });
 
     navigate("/orders", { replace: true });
   };
-  const handleChange = (e) => {
-    setDisabled(e.empty);
-    setError(e.error ? e.error.message : "");
-  };
 
   return (
     <div className="payment">
       <div className="payment_container">
         <h1>
-          Checkout (<Link to={"/checkout"}>{basket?.length} items</Link>)
+          Checkout (
+          <Link className="link" to={"/checkout"}>
+            {basket?.length} items
+          </Link>
+          )
         </h1>
         {/* payment and delivery */}
         <div className="payment_section">
           <div className="payment_title">
-            <h3>Delivery Address</h3>
+            <h3>Time of Order:</h3>
           </div>
           <div className="payment_address">
             <p>{user?.email}</p>
-            <p>Nakuru East</p>
-            <p>Bondeni</p>
+            <p>{date}</p>
           </div>
         </div>
         {/* payment section - review items */}
@@ -97,10 +104,7 @@ export const Payment = () => {
                   thousandSeparator={true}
                   prefix={"Ksh. "}
                 />
-                <button
-                  type="submit"
-                  disabled={processing || disabled || succeeded}
-                >
+                <button type="submit">
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
