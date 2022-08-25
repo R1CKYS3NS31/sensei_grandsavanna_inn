@@ -22,6 +22,7 @@ export const getOrderTotal = (order) =>
 
 const reducer = (state, action) => {
   switch (action.type) {
+    
     // case reducerAction.STOCK_PRODUCT:
     //   return { ...state, stockProduct: [...state.stockProduct, action.item] };
     case reducerAction.ADD_TO_BASKET:
